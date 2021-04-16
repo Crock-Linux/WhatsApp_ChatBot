@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/L3m0S/WhatsApp_ChatBot#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "venom-bot": "^3.0.14"
   }
 }
