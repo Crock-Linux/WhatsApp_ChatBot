@@ -3,7 +3,7 @@ const ChamadoInteresse = require('./database/mongodb');
 
 const app = express();
 
-app.get('/api/chatbot/chamados', (req, res) => {
+app.get('/api/chatbot/chamados/:name/:tel/:interesse/:cep/:numero', (req, res) => {
     async function salvaChamado() {
         try {
             const chamado = new ChamadoInteresse({
