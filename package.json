@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/L3m0S/WhatsApp_ChatBot#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
+    "mongoose": "^5.12.7",
     "venom-bot": "^3.0.14"
   }
 }

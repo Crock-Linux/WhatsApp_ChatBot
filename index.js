@@ -2,7 +2,7 @@
 // import { create, Whatsapp } from 'venom-bot';
 const venom = require('venom-bot');
 const textos = require('./manifest.json');
-const menu = require('./menu');
+const mainFunction = require('./menu');
 //const manifest = require('manifest.json');
 
 venom
@@ -15,11 +15,8 @@ venom
 function start(client) {
   client.onMessage((message) => {
     
-    menu(client, message)
+    mainFunction(client, message)
     
   });
-
-
-  
 }
 
