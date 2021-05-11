@@ -4,6 +4,7 @@ const dataBase = require('./Database/data')
 const suporteFibra = require('./Funções/suporteFibra')
 const segundaVia = require('./Funções/segundaVia');
 const menu = require('./Funções/menu');
+const interesse = require('./Funções/interesse');
 
 const mainFunction = async function(client, message) {  
 
@@ -22,6 +23,19 @@ const mainFunction = async function(client, message) {
         if (user.state === 'comprovante') {
             
         }
+
+        if (user.state === 'suporte') {
+            suporteFibra(client, message, user);
+            return
+        };
+
+        if (user.state === 'alterarData') {
+
+        };
+
+        if (user.state === 'interesse') {
+            interesse(client, message, user);
+        };
         
     } else {
         console.log('não achou');
@@ -43,10 +57,7 @@ const mainFunction = async function(client, message) {
         .catch((erro) => {
             console.error('Error when sending: ', erro); //return object error
         });
-    }
-
-        
-    
+    }    
 };
 
 

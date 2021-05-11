@@ -1,12 +1,12 @@
 const textos = require('../manifest.json');
 
-const menu = function(client, message, user) {
+const menu = async function(client, message, user) {
     //Encaminha o texto de segunda via
     if(message.body === '1'){
-        client
+        await client
         .sendText(message.from, textos.opcoes.primeira.op1)
         .then((result) => {
-            //console.log('Result: ', result); //return object success
+            console.log('Result: ', result); //return object success
         })
         .catch((erro) => {
             console.error('Error when sending: ', erro); //return object error
@@ -20,7 +20,7 @@ const menu = function(client, message, user) {
         client
         .sendText(message.from, "Nos incaminhe uma foto do comprovante:")
         .then((result) => {
-            //console.log('Result: ', result); //return object success
+            console.log('Result: ', result); //return object success
         })
         .catch((erro) => {
             console.error('Error when sending: ', erro); //return object error
@@ -60,14 +60,14 @@ const menu = function(client, message, user) {
     //Encaminha o texto de contratar serviço
     if(message.body === '5') {
         client
-        .sendText(message.from, textos.opcoes.segunda)
+        .sendText(message.from, "Por gentileza, nos informe seu nome completo:")
         .then((result) => {
             console.log('Result: ', result); //return object success
         })
         .catch((erro) => {
             console.error('Error when sending: ', erro); //return object error
         });
-        user.state = 'contratarServiço'
+        user.state = 'interesse'
         return
     };
     
