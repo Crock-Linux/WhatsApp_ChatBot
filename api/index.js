@@ -2,28 +2,30 @@ const express = require('express');
 const ChamadoInteresse = require('./database/mongodb');
 
 const app = express();
+app.use(express.json());
 
-app.get('/api/chatbot/chamados', (req, res) => {
+app.post('/api/chatbot/chamados', (req, res) => {
     async function salvaChamado() {
         try {
             const chamado = new ChamadoInteresse({
-                name: req.params.name,
-                tel: req.params.tel,
-                interesse: req.params.interesse,
-                cep: req.params.cep,
-                numero: req.params.numero
+                nome: req.body.name,
+                tel: req.body.tel,
+                interesse: req.body.interesse,
+                cep: req.body.cep,
+                numero: req.body.numero
             });
     
             const result = await chamado.save()
             console.log(result);
             res.send(result)
         }
-        catch {
+        catch (err) {
             console.log('Error', err.message);
         }
     }
 
     salvaChamado()
+    
 });
 
 app.post('/api/chatbot/chamados/interesse', (req, res) => {
