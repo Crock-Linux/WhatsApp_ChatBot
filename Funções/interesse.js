@@ -1,10 +1,11 @@
 const textos = require('../manifest.json');
+const axios = require('axios');
+const dataBase = require('../Database/data');
 
-const interesse = function(client, message, user) {
+const interesse = async function(client, message, user) {
 
     if(!user.estagio) {
-        console.log('CHAMOU A FUNÇÃO!')
-        user.nome = message.content
+        user.nome = message.body
 
         client
         .sendText(message.from, "Qual o seu interesse?\n\n1-Fibra\n\n2-Data Center\n\nDigite a opção numerica da opção desejada!")
@@ -21,9 +22,45 @@ const interesse = function(client, message, user) {
     }
 
     if (user.estagio === 'interesse') {
+        if(message.body === '1') {
+            user.interesse = 'fibra'
 
-    }
+             
 
-}
+        };
+        
+        if(message.body === '2') {
+            user.interesse = 'data center'
+
+            client
+            .sendText(message.from, "Nossos consultores entraram em contato no numero de seu whatssapp.")
+            .then((result) => {
+                //console.log('Result: ', result); //return object success
+            })
+            .catch((erro) => {
+                console.error('Error when sending: ', erro); //return object error
+            });
+            
+            await axios.post('http://localhost:5000/api/chatbot/chamados', {
+                nome: user.nome.toString(),
+                tel: message.from.toString(),
+                interesse: 'data center',
+                cep: '0',
+                numero: '0'
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+            const index = dataBase.indexOf(user)
+            dataBase.splice(index, 1);
+        };
+
+    };
+
+};
 
 module.exports = interesse;
