@@ -60,7 +60,7 @@ const menu = function(client, message, user) {
     //Encaminha o texto de contratar serviço
     if(message.body === '5') {
         client
-        .sendText(message.from, "Contratar serviço")
+        .sendText(message.from, textos.opcoes.segunda)
         .then((result) => {
             console.log('Result: ', result); //return object success
         })

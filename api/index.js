@@ -4,7 +4,11 @@ const ChamadoInteresse = require('./database/mongodb');
 const app = express();
 app.use(express.json());
 
+<<<<<<< HEAD
 app.post('/api/chatbot/chamados', (req, res) => {
+=======
+app.get('/api/chatbot/chamados/:name/:tel/:interesse/:cep/:numero', (req, res) => {
+>>>>>>> 572dcc6800ea5b9442b5757d94ae14d02390bb76
     async function salvaChamado() {
         try {
             const chamado = new ChamadoInteresse({

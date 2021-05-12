@@ -14,9 +14,7 @@ venom
 
 function start(client) {
   client.onMessage((message) => {
-    
     mainFunction(client, message)
-    
   });
 }
 
