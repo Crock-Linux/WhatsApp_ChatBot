@@ -1,9 +1,5 @@
-// Supports ES6
-// import { create, Whatsapp } from 'venom-bot';
 const venom = require('venom-bot');
-const textos = require('./manifest.json');
-const mainFunction = require('./menu');
-//const manifest = require('manifest.json');
+const mainFunction = require('./main');
 
 venom
   .create({headless: false})
@@ -12,9 +8,17 @@ venom
     console.log(erro);
   });
 
+<<<<<<< HEAD
 function start(client) {
   client.onMessage((message) => {
     mainFunction(client, message)
+=======
+async function start(client) {
+  await client.onMessage((message) => {
+    if (message.isGroupMsg === false) {
+        mainFunction(client, message)
+    };
+>>>>>>> 6e7625f219a66e388cbf4481dbcf8fb5c62af16c
   });
 }
 

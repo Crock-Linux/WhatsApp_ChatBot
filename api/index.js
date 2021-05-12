@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.post('/api/chatbot/chamados', (req, res) => {
 =======
 app.get('/api/chatbot/chamados/:name/:tel/:interesse/:cep/:numero', (req, res) => {
@@ -13,6 +14,14 @@ app.get('/api/chatbot/chamados/:name/:tel/:interesse/:cep/:numero', (req, res) =
         try {
             const chamado = new ChamadoInteresse({
                 nome: req.body.name,
+=======
+
+app.post('/api/chatbot/chamados', (req, res) => {
+    async function salvaChamado() {
+        try {
+            const chamado = new ChamadoInteresse({
+                nome: req.body.nome,
+>>>>>>> 6e7625f219a66e388cbf4481dbcf8fb5c62af16c
                 tel: req.body.tel,
                 interesse: req.body.interesse,
                 cep: req.body.cep,
@@ -23,7 +32,11 @@ app.get('/api/chatbot/chamados/:name/:tel/:interesse/:cep/:numero', (req, res) =
             console.log(result);
             res.send(result)
         }
+<<<<<<< HEAD
         catch (err) {
+=======
+        catch(err) {
+>>>>>>> 6e7625f219a66e388cbf4481dbcf8fb5c62af16c
             console.log('Error', err.message);
         }
     }
