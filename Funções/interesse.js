@@ -67,7 +67,7 @@ const interesse = async function(client, message, user) {
                 console.error('Error when sending: ', erro); //return object error
             });
 
-            await axios.post('http://localhost:5000/api/chatbot/chamados', {
+            await axios.post('http://localhost:5000/api/chatbot/chamados/interesse', {
                 nome: user.nome.toString(),
                 tel: message.from.toString(),
                 interesse: 'fibra',
@@ -98,7 +98,7 @@ const interesse = async function(client, message, user) {
                 console.error('Error when sending: ', erro); //return object error
             });
             
-            await axios.post('http://localhost:5000/api/chatbot/chamados', {
+            await axios.post('http://localhost:5000/api/chatbot/chamados/interesse', {
                 nome: user.nome.toString(),
                 tel: message.from.toString(),
                 interesse: 'data center',

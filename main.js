@@ -5,6 +5,7 @@ const suporteFibra = require('./Funções/suporteFibra')
 const segundaVia = require('./Funções/segundaVia');
 const menu = require('./Funções/menu');
 const interesse = require('./Funções/interesse');
+const alterarData = require('./Funções/alterarData');
 
 const mainFunction = async function(client, message) {  
 
@@ -30,7 +31,8 @@ const mainFunction = async function(client, message) {
         };
 
         if (user.state === 'alterarData') {
-
+            alterarData(client, message, user);
+            return
         };
 
         if (user.state === 'interesse') {

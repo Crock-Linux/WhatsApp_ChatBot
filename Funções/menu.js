@@ -46,7 +46,7 @@ const menu = async function(client, message, user) {
     //Encaminha o texto de alteração de data
     if(message.body === '4') {
         client
-        .sendText(message.from, "Alteração De data")
+        .sendText(message.from, textos.opcoes.quarta.texto1)
         .then((result) => {
             console.log('Result: ', result); //return object success
         })
