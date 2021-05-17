@@ -23,7 +23,7 @@ const alterarData = async function(client, message, user) {
     }
 
     if (user.estagio === 'nomeCompleto') {
-            user.cpf = message.body
+            user.documento = message.body
             
             client
             .sendText(message.from, textos.opcoes.quarta.texto3)
@@ -51,11 +51,10 @@ const alterarData = async function(client, message, user) {
             console.error('Error when sending: ', erro); //return object error
         });
             
-        await axios.post('http://localhost:5000/api/chatbot/alterarData', {
+        await axios.post('http://localhost:5000/api/chatbot/chamados/alterarData', {
             nome: user.nome.toString(),
             tel: message.from.toString(),
-            interesse: 'alterar Data',
-            cpf: user.cpf,
+            documento: user.documento,
             vencimento: user.vencimento
         })
         .then(function (response) {

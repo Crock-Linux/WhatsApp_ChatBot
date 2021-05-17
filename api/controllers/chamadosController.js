@@ -5,6 +5,28 @@ const ChamadoAlterarData = require('../models/alterardata');
 
 const router = express.Router();
 
+router.get('/interesse', async (req, res)=> {
+    try {
+        const chamados = await ChamadoInteresse.find({})
+        return res.send(chamados)
+    }
+    catch (err) {
+        return res.status(400).send({error: 'Search failed', err});
+    }
+})
+
+
+router.get('/alterarData', async (req, res) => {
+    try{
+        const chamados = await ChamadoAlterarData.find({})
+        return res.send(chamados)
+    }
+    catch (err) {
+        return res.status(400).send({error: 'Search failed', err})
+    }
+})
+
+
 //Rota para salvar interesse Fibra ou Data center
 router.post('/interesse', async (req, res) => {
     try {
